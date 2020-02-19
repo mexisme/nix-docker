@@ -1,4 +1,4 @@
-{ src ? ./srcs/2019-03-01.nix, nixpkgs ? <nixpkgs>, system ? builtins.currentSystem }:
+{ src ? ./srcs/2019-05-04.nix, nixpkgs ? <nixpkgs>, system ? builtins.currentSystem }:
 
 let
   inherit (pkgs) dockerTools stdenv buildEnv writeText;
@@ -73,8 +73,7 @@ let
         "MANPATH=/root/.nix-profile/share/man:/run/current-system/sw/share/man"
         "NIX_PAGER=cat"
         "NIX_PATH=nixpkgs=${unstable}"
-        "GIT_SSL_CAINFO=${cacert}/etc/ssl/certs/ca-bundle.crt"
-        "SSL_CERT_FILE=${cacert}/etc/ssl/certs/ca-bundle.crt"
+        "NIX_SSL_CERT_FILE=${cacert}/etc/ssl/certs/ca-bundle.crt"
       ];
   };
 
